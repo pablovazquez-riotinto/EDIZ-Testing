@@ -1,0 +1,55 @@
+parameters:
+  poetryOptions: ''
+  poetryRequestsTimeout: 30
+  poetryVersion: ''
+  pythonVersion: '3.x'
+  serviceConnection: 'artifactory-riotinto-pypi'
+
+steps:
+  - task: UsePythonVersion@0
+    displayName: 'Set up python ${{ parameters.pythonVersion }}'
+    inputs:
+      versionSpec: ${{ parameters.pythonVersion }}
+
+  - task: Cache@2
+    inputs:
+      key: poetry | "$(Agent.OS)" | "${{ parameters.pythonVersion }}" | "${{ parameters.poetryVersion }}"
+      path: .poetry
+      cacheHitVar: POETRY_CACHE_RESTORED
+    displayName: 'Restore poetry'
+
+  - script: |
+      export POETRY_HOME="$(pwd)/.poetry"
+      curl -sSL https://install.python-poetry.org | python3 - --version=${{ parameters.poetryVersion }}
+    displayName: 'Install Poetry'
+    condition: eq(variables.POETRY_CACHE_RESTORED, 'false')
+
+  - script: |
+      export POETRY_HOME="$(pwd)/.poetry"
+      echo "##vso[task.setvariable variable=PATH]${PATH}:${POETRY_HOME}/bin"
+    displayName: 'Add Poetry path'
+
+  - task: PipAuthenticate@1
+    displayName: 'Set up credentials'
+    inputs:
+      artifactFeeds: 'PACE-Automation'
+      pythonDownloadServiceConnections: ${{ parameters.serviceConnection }}
+
+  - script: |
+      export USERNAME=$(echo "$PIP_EXTRA_INDEX_URL" | python -c "import sys; from urllib import parse; print(parse.unquote(parse.urlparse(sys.stdin.read()).username))")
+      export PASSWORD=$(echo "$PIP_EXTRA_INDEX_URL" | python -c "import sys; from urllib import parse; print(parse.unquote(parse.urlparse(sys.stdin.read()).password))")
+      poetry config http-basic.artifactory "$USERNAME" "$PASSWORD"
+    displayName: 'Configure Poetry'
+
+  - task: Cache@2
+    inputs:
+      key: venv | "$(Agent.OS)" | "${{ parameters.pythonVersion }}" | "${{ parameters.poetryOptions }}" | poetry.lock
+      path: .venv
+      cacheHitVar: VENV_CACHE_RESTORED
+    displayName: 'Restore venv'
+
+  - script: poetry install ${{ parameters.poetryOptions }}
+    displayName: 'Install dependencies'
+    env:
+      POETRY_REQUESTS_TIMEOUT: ${{ parameters.poetryRequestsTimeout }}
+    condition: eq(variables.VENV_CACHE_RESTORED, 'false')

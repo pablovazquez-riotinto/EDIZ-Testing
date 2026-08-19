@@ -1,0 +1,58 @@
+name: "setup-poetry-env"
+description: "Composite action to setup the Python and poetry virtual environment."
+
+inputs:
+   artifactory-username:
+     required: true
+     description: "The value of secrets.GHA_ARTIFACTORY_USERNAME"
+   artifactory-password:
+     required: true
+     description: "The value of secrets.GHA_ARTIFACTORY_PASSWORD"
+   poetry-options:
+     required: false
+     description: "Poetry options to pass"
+     default: "--no-interaction"
+   poetry-requests-timeout:
+     required: false
+     description: "Poetry's default HTTP request timeout"
+     default: 30
+   poetry-version:
+     required: false
+     description: "Poetry version"
+     default: "1.8.5"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up credentials
+      uses: extractions/netrc@v1
+      with:
+        machine: artifactory.riotinto.com
+        username: ${{ inputs.artifactory-username }}
+        password: ${{ inputs.artifactory-password }}
+
+    - name: Set up python
+      uses: actions/setup-python@v4
+      with:
+        python-version-file: pyproject.toml
+
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ inputs.poetry-version }}
+        virtualenvs-in-project: true
+
+    - name: Load cached venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v3
+      with:
+        path: .venv
+        key: venv-${{ runner.os }}-${{ inputs.poetry-options }}-${{ hashFiles('poetry.lock') }}
+
+    - name: Install dependencies
+      shell: bash
+      env:
+        POETRY_REQUESTS_TIMEOUT: ${{ inputs.poetry-requests-timeout }}
+      run: |
+        poetry install ${{ inputs.poetry-options }}
+        touch .venv
