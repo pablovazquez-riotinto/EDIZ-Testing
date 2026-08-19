@@ -1,0 +1,68 @@
+name: release
+
+on:
+  release:
+    types: [published]
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Set up the environment
+        uses: ./.github/actions/setup-poetry-env
+        with:
+          artifactory-username: ${{ secrets.GHA_ARTIFACTORY_USERNAME}}
+          artifactory-password: ${{ secrets.GHA_ARTIFACTORY_PASSWORD}}
+          poetry-options: --only main
+
+      - name: Export tag
+        id: vars
+        run: echo tag=${GITHUB_REF#refs/*/} >> $GITHUB_OUTPUT
+
+      - name: Run build target
+        run: |
+          poetry version $RELEASE_VERSION
+          make build
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+
+      - name: Run publish target
+        run: make publish
+        env:
+          ARTIFACTORY_USERNAME: ${{ secrets.GHA_ARTIFACTORY_USERNAME }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.GHA_ARTIFACTORY_PASSWORD }}
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v3
+
+      - name: Set up the environment
+        uses: ./.github/actions/setup-poetry-env
+        with:
+          artifactory-username: ${{ secrets.GHA_ARTIFACTORY_USERNAME}}
+          artifactory-password: ${{ secrets.GHA_ARTIFACTORY_PASSWORD}}
+          poetry-options: --with docs
+
+      - name: Export tag
+        id: vars
+        run: echo tag=${GITHUB_REF#refs/*/} >> $GITHUB_OUTPUT
+
+      - name: Run docs target
+        run: |
+          poetry version $RELEASE_VERSION
+          poetry install --only-root
+          make docs
+          touch build/html/.nojekyll
+        env:
+          RELEASE_VERSION: ${{ steps.vars.outputs.tag }}
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/html
