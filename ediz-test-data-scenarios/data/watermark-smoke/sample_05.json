@@ -1,0 +1,5 @@
+{
+  "scenario": "watermark-smoke",
+  "sample": 5,
+  "note": "recent commit sample for watermark testing"
+}
