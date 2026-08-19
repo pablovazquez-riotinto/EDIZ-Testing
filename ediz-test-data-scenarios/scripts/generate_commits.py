@@ -250,7 +250,6 @@ def create_commit(
     payload_file.write_text(json.dumps(payload, indent=2))
 
     # Stage the file
-    _run(["git", "add", str(payload_file)], env={"GIT_DIR": str(repo_path / ".git")})
     _run(["git", "-C", str(repo_path), "add", str(payload_file)])
 
     # Build the author/committer env with the desired timestamp

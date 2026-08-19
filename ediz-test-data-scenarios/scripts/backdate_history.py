@@ -265,7 +265,7 @@ for var in ("GIT_AUTHOR_DATE", "GIT_COMMITTER_DATE"):
         _run([
             "git", "-C", str(repo_path),
             "filter-branch", "--force",
-            "--env-filter", f"python3 {filter_path}",
+            "--env-filter", f"python3 '{filter_path}'",
             "HEAD",
         ])
         print("Done. Timestamps shifted.")
