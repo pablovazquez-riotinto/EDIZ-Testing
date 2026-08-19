@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "source": "ediz-test-repo",
+    "data_type": "activity_log",
+    "period": "2026-01",
+    "generated_at": "2026-01-31T23:59:00Z",
+    "record_count": 20,
+    "schema_version": "1.0"
+  },
+  "records": [
+    {
+      "id": "act-001",
+      "timestamp": "2026-01-01T08:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "Initial commit: project scaffold",
+      "payload_size_bytes": 1024,
+      "tags": ["init", "scaffold"]
+    },
+    {
+      "id": "act-002",
+      "timestamp": "2026-01-01T09:15:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "Add README and project docs",
+      "payload_size_bytes": 2048,
+      "tags": ["docs"]
+    },
+    {
+      "id": "act-003",
+      "timestamp": "2026-01-02T10:30:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "feat: add base data schema",
+      "payload_size_bytes": 4096,
+      "tags": ["feature", "schema"]
+    },
+    {
+      "id": "act-004",
+      "timestamp": "2026-01-03T11:00:00Z",
+      "event_type": "pull_request_open",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/pagination",
+      "message": "PR: Add pagination test fixtures",
+      "payload_size_bytes": 512,
+      "tags": ["pr", "pagination"]
+    },
+    {
+      "id": "act-005",
+      "timestamp": "2026-01-05T14:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/pagination",
+      "message": "feat(pagination): add 50-record page fixtures",
+      "payload_size_bytes": 8192,
+      "tags": ["feature", "pagination"]
+    },
+    {
+      "id": "act-006",
+      "timestamp": "2026-01-07T09:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/filtering",
+      "message": "feat(filter): add tag-based filter scenarios",
+      "payload_size_bytes": 3072,
+      "tags": ["feature", "filtering"]
+    },
+    {
+      "id": "act-007",
+      "timestamp": "2026-01-08T16:20:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "chore: update .gitignore",
+      "payload_size_bytes": 256,
+      "tags": ["chore"]
+    },
+    {
+      "id": "act-008",
+      "timestamp": "2026-01-10T08:45:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "feat: add high watermark test data",
+      "payload_size_bytes": 6144,
+      "tags": ["feature", "high_watermark"]
+    },
+    {
+      "id": "act-009",
+      "timestamp": "2026-01-12T13:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "test: add snapshot mode test cases",
+      "payload_size_bytes": 5120,
+      "tags": ["test", "snapshot"]
+    },
+    {
+      "id": "act-010",
+      "timestamp": "2026-01-14T10:30:00Z",
+      "event_type": "merge",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "Merge feature/pagination into main",
+      "payload_size_bytes": 128,
+      "tags": ["merge", "pagination"]
+    },
+    {
+      "id": "act-011",
+      "timestamp": "2026-01-15T09:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/cursor",
+      "message": "feat(cursor): add cursor pagination fixtures",
+      "payload_size_bytes": 7168,
+      "tags": ["feature", "cursor"]
+    },
+    {
+      "id": "act-012",
+      "timestamp": "2026-01-17T15:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/cursor",
+      "message": "feat(cursor): add cursor resume test scenario",
+      "payload_size_bytes": 4096,
+      "tags": ["feature", "cursor"]
+    },
+    {
+      "id": "act-013",
+      "timestamp": "2026-01-19T11:30:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/date-slice",
+      "message": "feat(date_slice): add hourly slice test data",
+      "payload_size_bytes": 9216,
+      "tags": ["feature", "date_slice"]
+    },
+    {
+      "id": "act-014",
+      "timestamp": "2026-01-21T08:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "docs: add watermark scenario docs",
+      "payload_size_bytes": 2048,
+      "tags": ["docs", "high_watermark"]
+    },
+    {
+      "id": "act-015",
+      "timestamp": "2026-01-22T14:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "chore: version bump to 0.2.0",
+      "payload_size_bytes": 256,
+      "tags": ["chore", "release"]
+    },
+    {
+      "id": "act-016",
+      "timestamp": "2026-01-24T10:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/date-slice",
+      "message": "feat(date_slice): add daily slice boundaries",
+      "payload_size_bytes": 5120,
+      "tags": ["feature", "date_slice"]
+    },
+    {
+      "id": "act-017",
+      "timestamp": "2026-01-25T16:00:00Z",
+      "event_type": "merge",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "Merge feature/cursor into main",
+      "payload_size_bytes": 128,
+      "tags": ["merge", "cursor"]
+    },
+    {
+      "id": "act-018",
+      "timestamp": "2026-01-27T09:30:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "test: add gap simulation test fixtures",
+      "payload_size_bytes": 4096,
+      "tags": ["test", "gap_simulation"]
+    },
+    {
+      "id": "act-019",
+      "timestamp": "2026-01-29T13:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "refactor: normalize timestamp formats",
+      "payload_size_bytes": 3072,
+      "tags": ["refactor", "timestamps"]
+    },
+    {
+      "id": "act-020",
+      "timestamp": "2026-01-31T17:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "feat: add metadata enrichment fields",
+      "payload_size_bytes": 6144,
+      "tags": ["feature", "metadata"]
+    }
+  ]
+}

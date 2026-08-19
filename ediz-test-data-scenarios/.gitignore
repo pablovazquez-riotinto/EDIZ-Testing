@@ -1,0 +1,14 @@
+# Generated data directories (output of scripts)
+data/generated/
+data/historical/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+*.egg-info/
+
+# Editor
+.DS_Store
+*.swp

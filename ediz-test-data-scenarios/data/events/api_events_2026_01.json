@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "source": "ediz-test-repo",
+    "data_type": "events",
+    "event_category": "api_request",
+    "period": "2026-01",
+    "generated_at": "2026-01-31T23:59:00Z",
+    "record_count": 30,
+    "schema_version": "1.0",
+    "pagination": {
+      "page_size": 10,
+      "total_pages": 3,
+      "total_records": 30
+    }
+  },
+  "events": [
+    { "event_id": "ev-0001", "timestamp": "2026-01-01T08:05:12Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 45, "actor": "ingestor-1", "params": {"since": "2026-01-01T00:00:00Z", "per_page": 10, "page": 1} },
+    { "event_id": "ev-0002", "timestamp": "2026-01-01T08:05:58Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 38, "actor": "ingestor-1", "params": {"since": "2026-01-01T00:00:00Z", "per_page": 10, "page": 2} },
+    { "event_id": "ev-0003", "timestamp": "2026-01-01T08:06:45Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 42, "actor": "ingestor-1", "params": {"since": "2026-01-01T00:00:00Z", "per_page": 10, "page": 3} },
+    { "event_id": "ev-0004", "timestamp": "2026-01-02T09:00:00Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 50, "actor": "ingestor-2", "params": {"since": "2026-01-02T00:00:00Z", "per_page": 50, "page": 1} },
+    { "event_id": "ev-0005", "timestamp": "2026-01-02T09:01:05Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 48, "actor": "ingestor-2", "params": {"since": "2026-01-02T00:00:00Z", "per_page": 50, "page": 2} },
+    { "event_id": "ev-0006", "timestamp": "2026-01-03T10:00:00Z", "type": "api.cursor_request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 55, "actor": "ingestor-1", "params": {"cursor": null, "per_page": 50} },
+    { "event_id": "ev-0007", "timestamp": "2026-01-03T10:01:10Z", "type": "api.cursor_request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 52, "actor": "ingestor-1", "params": {"cursor": "eyJpZCI6IDEwMH0=", "per_page": 50} },
+    { "event_id": "ev-0008", "timestamp": "2026-01-03T10:02:20Z", "type": "api.cursor_request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 49, "actor": "ingestor-1", "params": {"cursor": "eyJpZCI6IDE1MH0=", "per_page": 50} },
+    { "event_id": "ev-0009", "timestamp": "2026-01-05T11:00:00Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 60, "actor": "ingestor-3", "params": {"since": "2026-01-05T00:00:00Z", "until": "2026-01-05T23:59:59Z", "per_page": 50} },
+    { "event_id": "ev-0010", "timestamp": "2026-01-05T11:01:00Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 204, "duration_ms": 20, "actor": "ingestor-3", "params": {"since": "2026-01-05T00:00:00Z", "until": "2026-01-05T23:59:59Z", "per_page": 50, "page": 2} },
+    { "event_id": "ev-0011", "timestamp": "2026-01-07T08:00:00Z", "type": "api.snapshot", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 350, "actor": "ingestor-1", "params": {"since": "2026-01-01T00:00:00Z", "per_page": 100, "page": 1} },
+    { "event_id": "ev-0012", "timestamp": "2026-01-07T08:00:55Z", "type": "api.snapshot", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 340, "actor": "ingestor-1", "params": {"since": "2026-01-01T00:00:00Z", "per_page": 100, "page": 2} },
+    { "event_id": "ev-0013", "timestamp": "2026-01-07T08:01:50Z", "type": "api.snapshot", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 310, "actor": "ingestor-1", "params": {"since": "2026-01-01T00:00:00Z", "per_page": 100, "page": 3} },
+    { "event_id": "ev-0014", "timestamp": "2026-01-07T08:02:40Z", "type": "api.snapshot", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 290, "actor": "ingestor-1", "params": {"since": "2026-01-01T00:00:00Z", "per_page": 100, "page": 4} },
+    { "event_id": "ev-0015", "timestamp": "2026-01-07T08:03:25Z", "type": "api.snapshot", "endpoint": "/commits", "method": "GET", "status": 204, "duration_ms": 18, "actor": "ingestor-1", "params": {"since": "2026-01-01T00:00:00Z", "per_page": 100, "page": 5} },
+    { "event_id": "ev-0016", "timestamp": "2026-01-10T09:00:00Z", "type": "api.watermark", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 70, "actor": "ingestor-2", "params": {"since": "2026-01-09T09:00:00Z", "until": "2026-01-10T09:00:00Z", "per_page": 50} },
+    { "event_id": "ev-0017", "timestamp": "2026-01-11T09:00:00Z", "type": "api.watermark", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 65, "actor": "ingestor-2", "params": {"since": "2026-01-10T09:00:00Z", "until": "2026-01-11T09:00:00Z", "per_page": 50} },
+    { "event_id": "ev-0018", "timestamp": "2026-01-12T09:00:00Z", "type": "api.watermark", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 58, "actor": "ingestor-2", "params": {"since": "2026-01-11T09:00:00Z", "until": "2026-01-12T09:00:00Z", "per_page": 50} },
+    { "event_id": "ev-0019", "timestamp": "2026-01-13T09:00:00Z", "type": "api.watermark", "endpoint": "/commits", "method": "GET", "status": 204, "duration_ms": 15, "actor": "ingestor-2", "params": {"since": "2026-01-12T09:00:00Z", "until": "2026-01-13T09:00:00Z", "per_page": 50} },
+    { "event_id": "ev-0020", "timestamp": "2026-01-15T10:00:00Z", "type": "api.date_slice", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 80, "actor": "ingestor-3", "params": {"since": "2026-01-15T08:00:00Z", "until": "2026-01-15T10:00:00Z", "per_page": 50} },
+    { "event_id": "ev-0021", "timestamp": "2026-01-15T12:00:00Z", "type": "api.date_slice", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 75, "actor": "ingestor-3", "params": {"since": "2026-01-15T10:00:00Z", "until": "2026-01-15T12:00:00Z", "per_page": 50} },
+    { "event_id": "ev-0022", "timestamp": "2026-01-15T14:00:00Z", "type": "api.date_slice", "endpoint": "/commits", "method": "GET", "status": 204, "duration_ms": 14, "actor": "ingestor-3", "params": {"since": "2026-01-15T12:00:00Z", "until": "2026-01-15T14:00:00Z", "per_page": 50} },
+    { "event_id": "ev-0023", "timestamp": "2026-01-17T09:00:00Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 44, "actor": "ingestor-1", "params": {"since": "2026-01-17T00:00:00Z", "per_page": 50, "page": 1} },
+    { "event_id": "ev-0024", "timestamp": "2026-01-20T08:00:00Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 46, "actor": "ingestor-1", "params": {"since": "2026-01-20T00:00:00Z", "per_page": 50, "page": 1} },
+    { "event_id": "ev-0025", "timestamp": "2026-01-21T08:00:00Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 47, "actor": "ingestor-1", "params": {"since": "2026-01-21T00:00:00Z", "per_page": 50, "page": 1} },
+    { "event_id": "ev-0026", "timestamp": "2026-01-22T08:00:00Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 43, "actor": "ingestor-2", "params": {"since": "2026-01-22T00:00:00Z", "per_page": 50, "page": 1} },
+    { "event_id": "ev-0027", "timestamp": "2026-01-24T09:00:00Z", "type": "api.cursor_request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 54, "actor": "ingestor-3", "params": {"cursor": null, "per_page": 50} },
+    { "event_id": "ev-0028", "timestamp": "2026-01-24T09:01:05Z", "type": "api.cursor_request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 51, "actor": "ingestor-3", "params": {"cursor": "eyJpZCI6IDIwMH0=", "per_page": 50} },
+    { "event_id": "ev-0029", "timestamp": "2026-01-28T10:00:00Z", "type": "api.watermark", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 68, "actor": "ingestor-2", "params": {"since": "2026-01-27T10:00:00Z", "until": "2026-01-28T10:00:00Z", "per_page": 50} },
+    { "event_id": "ev-0030", "timestamp": "2026-01-31T17:00:00Z", "type": "api.request", "endpoint": "/commits", "method": "GET", "status": 200, "duration_ms": 40, "actor": "ingestor-1", "params": {"since": "2026-01-31T00:00:00Z", "per_page": 50, "page": 1} }
+  ]
+}
