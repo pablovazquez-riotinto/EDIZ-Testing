@@ -1,0 +1,49 @@
+# Core Knowledge Graph Libraries
+networkx>=3.0
+matplotlib>=3.5.0
+plotly>=5.0.0
+pyvis>=0.3.0
+
+# Data Processing
+pandas>=1.5.0
+numpy>=1.21.0
+
+# Graph Databases & RDF
+neo4j>=5.0.0
+rdflib>=6.0.0
+py2neo>=2021.2.3
+
+# Machine Learning & Embeddings
+scikit-learn>=1.1.0
+sentence-transformers>=2.2.0
+transformers>=4.20.0
+torch>=1.12.0
+
+# RAG & LLM Integration
+langchain>=0.1.0
+openai>=1.0.0
+chromadb>=0.4.0
+faiss-cpu>=1.7.0
+
+# Jupyter & Development
+jupyter>=1.0.0
+ipykernel>=6.15.0
+notebook>=6.4.0
+
+# Visualization & Analysis
+seaborn>=0.11.0
+graphviz>=0.20.0
+bokeh>=2.4.0
+
+# Optional: Advanced Graph Processing
+igraph>=0.10.0
+graph-tool>=2.45.0
+
+# Web Framework (for KG server)
+fastapi>=0.95.0
+uvicorn>=0.20.0
+
+# Utilities
+tqdm>=4.64.0
+requests>=2.28.0
+python-dotenv>=1.0.0
