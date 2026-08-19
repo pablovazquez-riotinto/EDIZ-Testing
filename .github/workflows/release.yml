@@ -1,0 +1,56 @@
+name: release
+
+on:
+  release:
+    types: [published]
+    branches: [main]
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up the environment
+        uses: ./.github/actions/setup-uv-env
+        with:
+          artifactory-username: ${{ secrets.GHA_ARTIFACTORY_USERNAME }}
+          artifactory-password: ${{ secrets.GHA_ARTIFACTORY_PASSWORD }}
+          sync: "false"
+
+      - name: Run build target
+        run: make build
+
+      - name: Run publish target
+        run: make publish
+        env:
+          ARTIFACTORY_USERNAME: ${{ secrets.GHA_ARTIFACTORY_USERNAME }}
+          ARTIFACTORY_PASSWORD: ${{ secrets.GHA_ARTIFACTORY_PASSWORD }}
+
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up the environment
+        uses: ./.github/actions/setup-uv-env
+        with:
+          artifactory-username: ${{ secrets.GHA_ARTIFACTORY_USERNAME }}
+          artifactory-password: ${{ secrets.GHA_ARTIFACTORY_PASSWORD }}
+          extras: docs
+
+      - name: Run docs target
+        run: |
+          make docs
+          touch build/html/.nojekyll
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: build/html

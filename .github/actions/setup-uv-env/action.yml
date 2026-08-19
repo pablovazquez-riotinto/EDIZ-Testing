@@ -1,0 +1,61 @@
+name: "setup-uv-env"
+description: "Composite action to setup the Python and uv virtual environment."
+
+inputs:
+  artifactory-username:
+    required: true
+    description: "The value of secrets.GHA_ARTIFACTORY_USERNAME"
+  artifactory-password:
+    required: true
+    description: "The value of secrets.GHA_ARTIFACTORY_PASSWORD"
+  python-version:
+    required: false
+    description: "Python version to use"
+    default: "3.12"
+  uv-version:
+    required: false
+    description: "uv version to use (empty = use required-version or latest)"
+    default: ""
+  extras:
+    required: false
+    description: "Include optional dependencies"
+    default: ""
+  sync:
+    required: false
+    description: "Run uv sync"
+    default: "true"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Set up credentials
+      uses: extractions/netrc@v1
+      with:
+        machine: artifactory.riotinto.com
+        username: ${{ inputs.artifactory-username }}
+        password: ${{ inputs.artifactory-password }}
+
+    - name: Set up python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install uv
+      uses: astral-sh/setup-uv@v6
+      with:
+        version: ${{ inputs.uv-version }}
+        enable-cache: true
+
+    - name: Install dependencies
+      if: ${{ inputs.sync == 'true' }}
+      shell: bash
+      run: |
+        EXTRA_ARGS=()
+        if [ -n "${{ inputs.extras }}" ]; then
+          IFS=',' read -ra EXTRAS <<< "${{ inputs.extras }}"
+          for e in "${EXTRAS[@]}"; do
+            e="$(echo "$e" | xargs)" # trim
+            [ -n "$e" ] && EXTRA_ARGS+=(--extra "$e")
+          done
+        fi
+        uv sync "${EXTRA_ARGS[@]}"

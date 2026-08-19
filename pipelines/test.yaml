@@ -1,0 +1,28 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  pythonVersion: '3.12'
+
+stages:
+  - stage: Test
+    jobs:
+      - job: Check
+        steps:
+          - template: ./templates/setup-uv-env.yaml
+            parameters:
+              extras: check
+              pythonVersion: $(pythonVersion)
+
+          - script: make check
+            displayName: 'Run check target'
+
+      - job: Test
+        steps:
+          - template: ./templates/setup-uv-env.yaml
+            parameters:
+              pythonVersion: $(pythonVersion)
+              extras: test
+
+          - script: make test
+            displayName: 'Run test target'
