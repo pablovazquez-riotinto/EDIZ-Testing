@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "repository": "ediz-test-data-scenarios",
+  "description": "Repository metadata and ingestion state tracking",
+  "created_at": "2026-01-01T00:00:00Z",
+  "last_updated_at": "2026-02-28T23:59:00Z",
+  "branches": [
+    {
+      "name": "main",
+      "purpose": "Stable release branch",
+      "created_at": "2026-01-01T08:00:00Z",
+      "last_commit_at": "2026-02-28T17:00:00Z",
+      "commit_count": 40,
+      "protected": true
+    },
+    {
+      "name": "dev",
+      "purpose": "Development integration branch",
+      "created_at": "2026-01-01T08:00:00Z",
+      "last_commit_at": "2026-02-28T17:00:00Z",
+      "commit_count": 18,
+      "protected": false
+    },
+    {
+      "name": "feature/pagination",
+      "purpose": "Test pagination scenarios (50 records/page × multiple pages)",
+      "created_at": "2026-01-03T11:00:00Z",
+      "last_commit_at": "2026-01-14T10:30:00Z",
+      "commit_count": 5,
+      "protected": false,
+      "merged_into": "main",
+      "merged_at": "2026-01-14T10:30:00Z"
+    },
+    {
+      "name": "feature/cursor",
+      "purpose": "Test cursor-based pagination continuation",
+      "created_at": "2026-01-15T09:00:00Z",
+      "last_commit_at": "2026-01-25T16:00:00Z",
+      "commit_count": 4,
+      "protected": false,
+      "merged_into": "main",
+      "merged_at": "2026-01-25T16:00:00Z"
+    },
+    {
+      "name": "feature/filtering",
+      "purpose": "Test tag-based and field filtering",
+      "created_at": "2026-01-07T09:00:00Z",
+      "last_commit_at": "2026-01-07T09:00:00Z",
+      "commit_count": 3,
+      "protected": false
+    },
+    {
+      "name": "feature/date-slice",
+      "purpose": "Test time-based slicing (hourly/daily/weekly)",
+      "created_at": "2026-01-19T11:30:00Z",
+      "last_commit_at": "2026-02-22T08:00:00Z",
+      "commit_count": 6,
+      "protected": false
+    },
+    {
+      "name": "feature/snapshot",
+      "purpose": "Test full SNAPSHOT load from fixed start date",
+      "created_at": "2026-02-04T08:30:00Z",
+      "last_commit_at": "2026-02-23T14:00:00Z",
+      "commit_count": 4,
+      "protected": false,
+      "merged_into": "main",
+      "merged_at": "2026-02-23T14:00:00Z"
+    },
+    {
+      "name": "feature/watermark",
+      "purpose": "Test HIGH_WATERMARK incremental ingestion",
+      "created_at": "2026-02-14T09:00:00Z",
+      "last_commit_at": "2026-02-25T09:00:00Z",
+      "commit_count": 5,
+      "protected": false,
+      "merged_into": "main",
+      "merged_at": "2026-02-25T09:00:00Z"
+    }
+  ],
+  "ingestion_state": {
+    "snapshot": {
+      "mode": "SNAPSHOT",
+      "start_date": "2026-01-01T00:00:00Z",
+      "last_run_at": "2026-02-28T12:00:00Z",
+      "records_ingested": 500,
+      "pages_fetched": 10,
+      "status": "completed"
+    },
+    "high_watermark": {
+      "mode": "HIGH_WATERMARK",
+      "watermark": "2026-02-28T09:00:00Z",
+      "last_since": "2026-02-27T09:00:00Z",
+      "last_until": "2026-02-28T09:00:00Z",
+      "last_run_at": "2026-02-28T09:00:00Z",
+      "records_ingested_last_window": 12,
+      "status": "completed"
+    },
+    "cursor": {
+      "mode": "CURSOR",
+      "last_cursor": "eyJpZCI6IDQwMH0=",
+      "last_run_at": "2026-02-28T10:00:00Z",
+      "records_ingested": 200,
+      "status": "completed"
+    },
+    "date_slice": {
+      "mode": "DATE_SLICE",
+      "slice_size_hours": 2,
+      "last_slice_start": "2026-02-28T20:00:00Z",
+      "last_slice_end": "2026-02-28T22:00:00Z",
+      "last_run_at": "2026-02-28T22:05:00Z",
+      "records_ingested_last_slice": 8,
+      "status": "completed"
+    }
+  },
+  "versions": [
+    {"tag": "v0.1.0", "commit": "abc1234", "date": "2026-01-01T08:00:00Z", "notes": "Initial scaffold"},
+    {"tag": "v0.2.0", "commit": "def5678", "date": "2026-01-22T14:00:00Z", "notes": "Pagination and cursor support"},
+    {"tag": "v0.3.0", "commit": "ghi9012", "date": "2026-02-21T10:00:00Z", "notes": "Snapshot and watermark modes"}
+  ]
+}

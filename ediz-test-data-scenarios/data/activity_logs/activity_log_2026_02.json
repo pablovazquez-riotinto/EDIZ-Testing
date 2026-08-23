@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "source": "ediz-test-repo",
+    "data_type": "activity_log",
+    "period": "2026-02",
+    "generated_at": "2026-02-28T23:59:00Z",
+    "record_count": 20,
+    "schema_version": "1.0"
+  },
+  "records": [
+    {
+      "id": "act-021",
+      "timestamp": "2026-02-01T09:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "feat: add February data fixtures",
+      "payload_size_bytes": 4096,
+      "tags": ["feature", "fixtures"]
+    },
+    {
+      "id": "act-022",
+      "timestamp": "2026-02-02T10:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "test: validate cursor resumption after gap",
+      "payload_size_bytes": 3072,
+      "tags": ["test", "cursor", "gap"]
+    },
+    {
+      "id": "act-023",
+      "timestamp": "2026-02-04T08:30:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/snapshot",
+      "message": "feat(snapshot): add fixed-start-date scenario",
+      "payload_size_bytes": 6144,
+      "tags": ["feature", "snapshot"]
+    },
+    {
+      "id": "act-024",
+      "timestamp": "2026-02-05T14:15:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/snapshot",
+      "message": "feat(snapshot): large initial load fixture (500 records)",
+      "payload_size_bytes": 51200,
+      "tags": ["feature", "snapshot", "large_load"]
+    },
+    {
+      "id": "act-025",
+      "timestamp": "2026-02-07T11:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "chore: add generate_commits.py utility",
+      "payload_size_bytes": 8192,
+      "tags": ["chore", "utility"]
+    },
+    {
+      "id": "act-026",
+      "timestamp": "2026-02-09T09:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "chore: add backdate_history.py utility",
+      "payload_size_bytes": 6144,
+      "tags": ["chore", "utility"]
+    },
+    {
+      "id": "act-027",
+      "timestamp": "2026-02-10T16:00:00Z",
+      "event_type": "merge",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "Merge dev into main (February iteration)",
+      "payload_size_bytes": 128,
+      "tags": ["merge"]
+    },
+    {
+      "id": "act-028",
+      "timestamp": "2026-02-12T10:30:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "docs: add EDIZ scenario documentation",
+      "payload_size_bytes": 12288,
+      "tags": ["docs"]
+    },
+    {
+      "id": "act-029",
+      "timestamp": "2026-02-14T09:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/watermark",
+      "message": "feat(watermark): add since/until auto-management test",
+      "payload_size_bytes": 5120,
+      "tags": ["feature", "high_watermark"]
+    },
+    {
+      "id": "act-030",
+      "timestamp": "2026-02-15T14:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/watermark",
+      "message": "test(watermark): edge case - empty window",
+      "payload_size_bytes": 2048,
+      "tags": ["test", "high_watermark", "edge_case"]
+    },
+    {
+      "id": "act-031",
+      "timestamp": "2026-02-17T11:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/watermark",
+      "message": "test(watermark): overlapping windows scenario",
+      "payload_size_bytes": 4096,
+      "tags": ["test", "high_watermark"]
+    },
+    {
+      "id": "act-032",
+      "timestamp": "2026-02-18T09:30:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "feat: add pause_resume_activity.py script",
+      "payload_size_bytes": 6144,
+      "tags": ["feature", "utility"]
+    },
+    {
+      "id": "act-033",
+      "timestamp": "2026-02-20T15:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "test: simulate 3-day activity gap",
+      "payload_size_bytes": 3072,
+      "tags": ["test", "gap_simulation"]
+    },
+    {
+      "id": "act-034",
+      "timestamp": "2026-02-21T10:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "chore: version bump to 0.3.0",
+      "payload_size_bytes": 256,
+      "tags": ["chore", "release"]
+    },
+    {
+      "id": "act-035",
+      "timestamp": "2026-02-22T08:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "feature/date-slice",
+      "message": "feat(date_slice): weekly slice boundary tests",
+      "payload_size_bytes": 7168,
+      "tags": ["feature", "date_slice"]
+    },
+    {
+      "id": "act-036",
+      "timestamp": "2026-02-23T14:00:00Z",
+      "event_type": "merge",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "Merge feature/snapshot into main",
+      "payload_size_bytes": 128,
+      "tags": ["merge", "snapshot"]
+    },
+    {
+      "id": "act-037",
+      "timestamp": "2026-02-24T11:30:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "refactor: modularize data generators",
+      "payload_size_bytes": 5120,
+      "tags": ["refactor"]
+    },
+    {
+      "id": "act-038",
+      "timestamp": "2026-02-25T09:00:00Z",
+      "event_type": "merge",
+      "actor": "dev-user-2",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "main",
+      "message": "Merge feature/watermark into main",
+      "payload_size_bytes": 128,
+      "tags": ["merge", "high_watermark"]
+    },
+    {
+      "id": "act-039",
+      "timestamp": "2026-02-26T15:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-1",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "feat: add bulk event generator script",
+      "payload_size_bytes": 9216,
+      "tags": ["feature", "utility"]
+    },
+    {
+      "id": "act-040",
+      "timestamp": "2026-02-28T17:00:00Z",
+      "event_type": "commit",
+      "actor": "dev-user-3",
+      "repository": "ediz-test-data-scenarios",
+      "branch": "dev",
+      "message": "docs: update README with reset instructions",
+      "payload_size_bytes": 4096,
+      "tags": ["docs"]
+    }
+  ]
+}
